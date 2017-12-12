@@ -21,16 +21,14 @@ c.NotebookApp.ip = '*'
 c.NotebookApp.port = int(os.getenv('PORT', 8888))
 c.NotebookApp.open_browser = False
 c.NotebookApp.iopub_data_rate_limit = 10000000
-c.MultiKernelManager.default_kernel_name = 'python2'
 
 password = ''
 
 if 'HASHED_PASSWORD' in os.environ:
-  password = os.environ['HASHED_PASSWORD']
-  del os.environ['HASHED_PASSWORD']
+    password = os.environ['HASHED_PASSWORD']
+    del os.environ['HASHED_PASSWORD']
 elif 'PASSWORD' in os.environ:
-  password = passwd(os.environ['PASSWORD'])
-  del os.environ['PASSWORD']
+    password = passwd(os.environ['PASSWORD'])
+    del os.environ['PASSWORD']
 
 c.NotebookApp.password = password
-
